@@ -1,7 +1,21 @@
 import {withSentryConfig} from '@sentry/nextjs';
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    
+    reactStrictMode: true,
+    swcMinify: true,
+    // This ensures case sensitivity is enforced
+    webpack: (config, { isServer }) => {
+        if (!isServer) {
+            config.resolve.fallback = { fs: false };
+        }
+        // This will make webpack more strict about case sensitivity
+        config.module.rules.push({
+            test: /\.(js|jsx|ts|tsx)$/,
+            enforce: 'pre',
+            use: ['case-sensitive-paths-webpack-plugin'],
+        });
+        return config;
+    },
 };
 
 export default withSentryConfig(nextConfig, {

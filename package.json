@@ -5,8 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "start": "node server.js",
+    "lint": "next lint",
+    "postinstall": "npm run build"
   },
   "dependencies": {
     "@react-three/drei": "^9.121.3",
@@ -35,6 +36,7 @@
     "@types/react-dom": "^19",
     "@types/react-lottie": "^1.2.10",
     "autoprefixer": "^10.4.20",
+    "case-sensitive-paths-webpack-plugin": "^2.4.0",
     "eslint": "^9",
     "eslint-config-next": "^15.1.5",
     "postcss": "^8",
