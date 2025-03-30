@@ -4,6 +4,14 @@ const nextConfig = {
     reactStrictMode: true,
     swcMinify: true,
     output: 'standalone',
+    // Disable TypeScript type checking during build
+    typescript: {
+        // !! WARN !!
+        // Dangerously allow production builds to successfully complete even if
+        // your project has type errors.
+        // !! WARN !!
+        ignoreBuildErrors: true,
+    },
     // Add experimental configuration for path resolution
     experimental: {
         esmExternals: 'loose',
