@@ -7,6 +7,14 @@ const nextConfig = {
     // Add experimental configuration for path resolution
     experimental: {
         esmExternals: 'loose',
+    },
+    // Add webpack configuration to handle critical dependency errors
+    webpack: (config, { isServer }) => {
+        // Resolve critical dependency errors
+        config.externals = [...(config.externals || []), {
+            '@prisma/instrumentation': 'commonjs @prisma/instrumentation'
+        }];
+        return config;
     }
 };
 
