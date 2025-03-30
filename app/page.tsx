@@ -1,22 +1,16 @@
 "use client";
 
+import { Suspense } from "react";
 import { navItems } from "../data";
-import { Suspense, lazy } from 'react';
-
-// Static components
 import Footer from "../components/Footer";
+import { Hero, Grid, FloatingNav, RecentProjects, Experience } from "../components/dynamic-components";
 
-// Dynamic imports for components that use browser APIs
-const Hero = lazy(() => import("../components/Hero"));
-const Grid = lazy(() => import("../components/Grid"));
-const FloatingNav = lazy(() => import("../components/ui/FloatingNav").then(mod => ({ default: mod.FloatingNav })));
-const RecentProjects = lazy(() => import("../components/RecentProjects"));
-const Experience = lazy(() => import("../components/Experience"));
-
-// Loading fallbacks
-const LoadingUI = () => <div className="h-screen w-full bg-black flex items-center justify-center">
-  <div className="text-white">Loading...</div>
-</div>;
+// Loading fallback
+const LoadingUI = () => (
+  <div className="h-screen w-full bg-black flex items-center justify-center">
+    <div className="text-white">Loading...</div>
+  </div>
+);
 
 const Home = () => {
   return (
@@ -39,3 +33,4 @@ export default Home;
 
 // Force dynamic rendering
 export const dynamic = "force-dynamic";
+export const runtime = "edge";
