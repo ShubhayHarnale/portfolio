@@ -1,8 +1,19 @@
 "use client";
-import { cn } from "@/lib/utils";
-import { Canvas, useFrame, useThree } from "@react-three/fiber";
+import { cn } from "../../lib/utils";
+import { Canvas, useFrame, useThree, Object3DNode } from "@react-three/fiber";
 import React, { useMemo, useRef } from "react";
 import * as THREE from "three";
+
+// Add declaration for mesh
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      mesh: Object3DNode<THREE.Mesh, typeof THREE.Mesh>;
+      planeGeometry: any;
+      primitive: any;
+    }
+  }
+}
 
 export const CanvasRevealEffect = ({
   animationSpeed = 0.4,
