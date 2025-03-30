@@ -4,11 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build || true",
+    "build": "next build",
     "start": "NODE_ENV=production node server.js",
     "lint": "next lint",
-    "render-build": "NEXT_TELEMETRY_DISABLED=1 next build || true",
-    "postinstall": "npm audit fix --force && npx tsc --declaration --emitDeclarationOnly --jsx react --outDir .types"
+    "render-build": "NEXT_TELEMETRY_DISABLED=1 next build",
+    "postinstall": "npm audit fix --force || true"
   },
   "dependencies": {
     "@react-three/drei": "^9.121.3",

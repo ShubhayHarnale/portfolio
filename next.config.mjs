@@ -7,6 +7,13 @@ const nextConfig = {
     distDir: 'build',
     images: {
         unoptimized: true,
+        domains: ['*'],
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: '**',
+            },
+        ],
     },
     // Disable TypeScript type checking during build
     typescript: {

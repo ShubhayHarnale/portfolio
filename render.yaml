@@ -2,7 +2,7 @@ services:
   - type: web
     name: portfolio
     env: node
-    buildCommand: npm install && npm run build
+    buildCommand: npm install && npm run render-build
     startCommand: npm start
     region: oregon
     plan: free
@@ -11,5 +11,7 @@ services:
         value: production
       - key: PORT
         value: 3000
-    healthCheckPath: /_next/static/chunks/main.js
+      - key: NEXT_PUBLIC_RENDER_DEPLOYMENT
+        value: true
+    healthCheckPath: /
     autoDeploy: true 
