@@ -2,7 +2,7 @@ services:
   - type: web
     name: portfolio
     env: node
-    buildCommand: NODE_ENV=development npm install && npm run build
+    buildCommand: NODE_ENV=development npm install && npm run build && npm audit fix --force
     startCommand: npm start
     envVars:
       - key: NODE_ENV

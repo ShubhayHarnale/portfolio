@@ -4,6 +4,10 @@ const nextConfig = {
     reactStrictMode: true,
     swcMinify: true,
     output: 'standalone',
+    // Add experimental configuration for path resolution
+    experimental: {
+        esmExternals: 'loose',
+    },
 };
 
 // Using plain nextConfig without Sentry for troubleshooting

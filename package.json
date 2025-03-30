@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start -p $PORT",
     "lint": "next lint",
-    "render-build": "NEXT_TELEMETRY_DISABLED=1 next build"
+    "render-build": "NEXT_TELEMETRY_DISABLED=1 next build",
+    "postinstall": "npm audit fix --force"
   },
   "dependencies": {
     "@react-three/drei": "^9.121.3",
@@ -30,17 +31,17 @@
     "tailwindcss": "^3.4.1",
     "tailwindcss-animate": "^1.0.7",
     "three": "^0.172.0",
-    "three-globe": "^2.41.4"
-  },
-  "devDependencies": {
-    "@eslint/eslintrc": "^3",
+    "three-globe": "^2.41.4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@types/react-lottie": "^1.2.10",
-    "case-sensitive-paths-webpack-plugin": "^2.4.0",
     "eslint": "^9",
-    "eslint-config-next": "^15.1.5",
+    "eslint-config-next": "^15.1.5"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "case-sensitive-paths-webpack-plugin": "^2.4.0",
     "typescript": "^5"
   }
 }
