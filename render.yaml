@@ -2,13 +2,13 @@ services:
   - type: web
     name: portfolio
     env: node
-    buildCommand: npm install && npm run render-build
+    buildCommand: NODE_ENV=development npm install && npm run build
     startCommand: npm start
     envVars:
       - key: NODE_ENV
         value: production
       - key: PORT
-        value: 3000
+        value: 10000
       - key: NEXT_TELEMETRY_DISABLED
         value: 1
       - key: NODE_OPTIONS
