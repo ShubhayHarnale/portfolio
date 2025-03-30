@@ -7,11 +7,6 @@ const nextConfig = {
     // Add experimental configuration for path resolution
     experimental: {
         esmExternals: 'loose',
-    },
-    // Disable Sentry completely
-    sentry: {
-        disableServerWebpackPlugin: true,
-        disableClientWebpackPlugin: true,
     }
 };
 
