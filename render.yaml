@@ -2,8 +2,8 @@ services:
   - type: web
     name: portfolio
     env: node
-    buildCommand: NODE_ENV=development npm install && npm run build && npm audit fix --force
-    startCommand: npm start
+    buildCommand: NODE_ENV=development npm install --legacy-peer-deps && NEXT_TELEMETRY_DISABLED=1 SENTRY_DISABLE=1 npm run build && npm audit fix --force
+    startCommand: SENTRY_DISABLE=1 npm start
     envVars:
       - key: NODE_ENV
         value: production
@@ -12,4 +12,6 @@ services:
       - key: NEXT_TELEMETRY_DISABLED
         value: 1
       - key: NODE_OPTIONS
-        value: "--max_old_space_size=1536" 
+        value: "--max_old_space_size=1536"
+      - key: SENTRY_DISABLE
+        value: 1 

@@ -8,6 +8,11 @@ const nextConfig = {
     experimental: {
         esmExternals: 'loose',
     },
+    // Disable Sentry completely
+    sentry: {
+        disableServerWebpackPlugin: true,
+        disableClientWebpackPlugin: true,
+    }
 };
 
 // Using plain nextConfig without Sentry for troubleshooting
