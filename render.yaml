@@ -2,14 +2,14 @@ services:
   - type: web
     name: portfolio
     env: node
-    buildCommand: NODE_ENV=development npm install --legacy-peer-deps && NEXT_TELEMETRY_DISABLED=1 npm run build && npm audit fix --force
+    buildCommand: npm install && npm run build
     startCommand: npm start
+    region: oregon
+    plan: free
     envVars:
       - key: NODE_ENV
         value: production
       - key: PORT
-        value: 10000
-      - key: NEXT_TELEMETRY_DISABLED
-        value: 1
-      - key: NODE_OPTIONS
-        value: "--max_old_space_size=1536" 
+        value: 3000
+    healthCheckPath: /_next/static/chunks/main.js
+    autoDeploy: true 

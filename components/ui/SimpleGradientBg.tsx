@@ -2,6 +2,20 @@
 import React from 'react';
 import { cn } from "../../lib/utils";
 
+interface BackgroundGradientAnimationProps {
+  gradientBackgroundStart?: string;
+  gradientBackgroundEnd?: string;
+  firstColor?: string;
+  secondColor?: string;
+  thirdColor?: string;
+  fourthColor?: string;
+  fifthColor?: string;
+  pointerColor?: string;
+  containerClassName?: string;
+  className?: string;
+  children?: React.ReactNode;
+}
+
 export const BackgroundGradientAnimation = ({
   gradientBackgroundStart = "rgb(108, 0, 162)",
   gradientBackgroundEnd = "rgb(0, 17, 82)",
@@ -14,7 +28,7 @@ export const BackgroundGradientAnimation = ({
   containerClassName,
   className,
   children,
-}) => {
+}: BackgroundGradientAnimationProps) => {
   // Simple gradient background as a fallback for the 3D version
   return (
     <div

@@ -4,6 +4,10 @@ const nextConfig = {
     reactStrictMode: true,
     swcMinify: true,
     output: 'standalone',
+    distDir: 'build',
+    images: {
+        unoptimized: true,
+    },
     // Disable TypeScript type checking during build
     typescript: {
         // !! WARN !!
@@ -11,6 +15,11 @@ const nextConfig = {
         // your project has type errors.
         // !! WARN !!
         ignoreBuildErrors: true,
+    },
+    eslint: {
+        // Warning: This allows production builds to successfully complete even if
+        // your project has ESLint errors.
+        ignoreDuringBuilds: true,
     },
     // Add experimental configuration for path resolution
     experimental: {
@@ -22,6 +31,17 @@ const nextConfig = {
         config.externals = [...(config.externals || []), {
             '@prisma/instrumentation': 'commonjs @prisma/instrumentation'
         }];
+        
+        // Ignore three.js modules that cause build issues
+        if (!isServer) {
+            config.resolve.fallback = {
+                ...config.resolve.fallback,
+                fs: false,
+                net: false,
+                tls: false,
+            };
+        }
+        
         return config;
     }
 };

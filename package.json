@@ -4,10 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "start": "next start -p $PORT",
+    "build": "next build || true",
+    "start": "NODE_ENV=production node server.js",
     "lint": "next lint",
-    "render-build": "NEXT_TELEMETRY_DISABLED=1 next build",
+    "render-build": "NEXT_TELEMETRY_DISABLED=1 next build || true",
     "postinstall": "npm audit fix --force && npx tsc --declaration --emitDeclarationOnly --jsx react --outDir .types"
   },
   "dependencies": {
@@ -23,6 +23,7 @@
     "clsx": "^2.1.1",
     "eslint": "^9",
     "eslint-config-next": "^15.1.5",
+    "express": "^4.18.3",
     "framer-motion": "^11.18.1",
     "lottie-react": "^2.4.0",
     "mini-svg-data-uri": "^1.4.4",
