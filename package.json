@@ -5,9 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "node server.js",
+    "start": "next start -p $PORT",
     "lint": "next lint",
-    "postinstall": "npm run build"
+    "render-build": "NEXT_TELEMETRY_DISABLED=1 next build"
   },
   "dependencies": {
     "@react-three/drei": "^9.121.3",

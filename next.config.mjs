@@ -1,23 +1,15 @@
-import {withSentryConfig} from '@sentry/nextjs';
+// import {withSentryConfig} from '@sentry/nextjs';
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     reactStrictMode: true,
     swcMinify: true,
-    // This ensures case sensitivity is enforced
-    webpack: (config, { isServer }) => {
-        if (!isServer) {
-            config.resolve.fallback = { fs: false };
-        }
-        // This will make webpack more strict about case sensitivity
-        config.module.rules.push({
-            test: /\.(js|jsx|ts|tsx)$/,
-            enforce: 'pre',
-            use: ['case-sensitive-paths-webpack-plugin'],
-        });
-        return config;
-    },
+    output: 'standalone',
 };
 
+// Using plain nextConfig without Sentry for troubleshooting
+export default nextConfig;
+
+/* Commenting out Sentry config for now
 export default withSentryConfig(nextConfig, {
 // For all available options, see:
 // https://github.com/getsentry/sentry-webpack-plugin#options
@@ -36,12 +28,6 @@ widenClientFileUpload: true,
 // Transpiles SDK to be compatible with IE11 (increases bundle size)
 transpileClientSDK: true,
 
-// Uncomment to route browser requests to Sentry through a Next.js rewrite to circumvent ad-blockers.
-// This can increase your server load as well as your hosting bill.
-// Note: Check that the configured route will not match with your Next.js middleware, otherwise reporting of client-
-// side errors will fail.
-// tunnelRoute: "/monitoring",
-
 // Hides source maps from generated client bundles
 hideSourceMaps: true,
 
@@ -54,3 +40,4 @@ disableLogger: true,
 // https://vercel.com/docs/cron-jobs
 automaticVercelMonitors: true,
 });
+*/
